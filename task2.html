@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+</head>
+<body>
+    <h2>Book Details</h1>
+    
+    <div>
+        <h3>Title of the First Book:</h2>
+        <p id="firstBookTitle"></p>
+    </div>
+    
+    <div>
+        <h3>Author of the Second Book:</h2>
+        <p id="secondBookAuthor"></p>
+    </div>
+    
+    <div>
+        <h3>Genres of All Books:</h2>
+        <ul id="bookGenres"></ul>
+    </div>
+
+    <script>
+        const bookData = {
+            "Books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald",
+                    "publicationYear": 1925,
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publicationYear": 1960,
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        document.getElementById("firstBookTitle").textContent = bookData.Books[0].title;
+
+        document.getElementById("secondBookAuthor").textContent = bookData.Books[1].author;
+
+        const genresList = document.getElementById("bookGenres");
+        bookData.Books.forEach(book => {
+            book.genres.forEach(genre => {
+                const li = document.createElement("li");
+                li.textContent = genre;
+                genresList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
